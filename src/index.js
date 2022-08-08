@@ -6,7 +6,7 @@ import { theme  } from './theme';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-const url = 'http://44.203.90.204:8000';
+const url = 'http://api.nestates.shop';
 
 function rducer(state = url, action){
   return state
