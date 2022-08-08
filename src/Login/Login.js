@@ -31,7 +31,7 @@ function Login(props) {
     const onClickLogin = async () => { 
 
           
-            await fetch('http://api.nestatest.shop/rest-auth/login/', {
+            await fetch('https://api.nestatest.shop/rest-auth/login/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ function Login(props) {
                     props.setlogined('logged')
                 }
                 axios
-                    .post("http://api.nestatest.shop/agency/", {
+                    .post("https://api.nestatest.shop/agency/", {
                                 mode:'get_log',
                                 username:inputId,
                             })
