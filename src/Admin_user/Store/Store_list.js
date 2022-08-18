@@ -49,6 +49,7 @@ export default function Table_store(props) {
         allcheckedlist.push(rows[i].id)
       }
       setCheckedInputs(allcheckedlist)
+      props.setChecked(allcheckedlist)
     }
     else{
       setallcheckedlist([]);
@@ -59,9 +60,12 @@ export default function Table_store(props) {
   const changeHandler = (checked, id) => {
     if (checked) {
       setCheckedInputs([...checkedInputs, id]);
+      props.setChecked([...checkedInputs, id])
+      console.log(props.checked)
     } else {
       // 체크 해제
       setCheckedInputs(checkedInputs.filter((el) => el !== id));
+      props.setChecked(checkedInputs.filter((el) => el!== id));
     }
   };
 
@@ -73,8 +77,8 @@ export default function Table_store(props) {
       props.setchange('changed')
       setTotalcount([...response.data].length)
         
-      })
-
+      })  
+    
     }
     const thst = {
         justifyContent:'center',alignItems:'center',textAlign:'center',color:'black',verticalAlign:'middle',padding:'4px',fontWeight:'normal',
@@ -101,10 +105,10 @@ export default function Table_store(props) {
               setTotalcount(rows.length);
             }}
           >
-            <option value="2">2</option>
-            <option value="4">4</option>
             <option value="10">10</option>
+            <option value="30">30</option>
             <option value="50">50</option>
+            <option value="100">100</option>
             <option value={rows.length}>All</option>
           </Form.Select>
 
@@ -171,7 +175,7 @@ export default function Table_store(props) {
                   <div style={{fontSize:'12px',color:"#595c97"}}>{event.cal_name}</div>
                   <div style={{fontSize:'12px',color:"#595c97"}}>{event.cal_date}</div>
                 </div>
-                <Cal_modal id={event.id} />
+                <Cal_modal id={event.id}/>
               </div>
 
             </th>
