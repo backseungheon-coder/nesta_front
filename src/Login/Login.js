@@ -21,13 +21,7 @@ function Login(props) {
     const handleInputE = (e) => {
         setInputE(e.target.value)
     }
-    // var body = {
-    //     "username":inputId,
-    //     "email":'',
-    //     "password":inputPw,
 
-    // }
-	// login 버튼 클릭 이벤트
     const onClickLogin = async () => { 
 
           
