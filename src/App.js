@@ -1,4 +1,5 @@
 import React, { useState,useRef } from "react";
+import { useRoutes } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components"
 import Main from "./Admin_user/Main"
 import Main_front from "./Front/Main_front"
@@ -8,6 +9,10 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import './App.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import Themeroutes from "./Routers.js";
+
+
+
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
     html, body, div, span, applet, object, iframe,
@@ -86,6 +91,7 @@ let store_admin = createStore(rducer_admin)
 let store_front = createStore(rducer_fornt)
 
 
+
 function App() {
   const [islogined,setlogined] = useState(window.localStorage.getItem('key'))
 
@@ -94,7 +100,7 @@ function App() {
     return (
       // <Login/>
       <>
-        <Login setlogined={setlogined}/>
+        <Login setlogined={setlogined}></Login>
       </>
     );
   }
@@ -109,7 +115,6 @@ function App() {
             <Provider store={store_admin}>
               <Main backend={HTML5Backend}  />
             </Provider>
-         
       </>
     );
     }

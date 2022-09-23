@@ -238,7 +238,7 @@ export default function Memo_modal(props) {
     }
 
 
-    
+
 
   
     return (
@@ -252,6 +252,8 @@ export default function Memo_modal(props) {
           가맹점등록
         </Button_agency>
 
+
+        
 
         <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton>

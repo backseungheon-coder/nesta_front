@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './scss/style.scss' 
-import Sign_up from '../Sign_up.js'
-import {
-    BrowserRouter,
-    Routes,
-    Route,
-  }from "react-router-dom";
+import './Login/scss/style.scss'
+
 
 
 function Login(props) {
@@ -24,12 +19,14 @@ function Login(props) {
         setInputPw(e.target.value)
         console.log(e.target.value)
     }
+     
     
     const handleInputE = (e) => {
         setInputE(e.target.value)
     }
 
     const onClickLogin = async () => { 
+
           
             await fetch('https://api.nestatest.shop/rest-auth/login/', {
                 method: 'POST',
@@ -69,13 +66,34 @@ function Login(props) {
                                 console.log(error);
                             })
                  })
+               
+
+
+       
+
+                
+                
+            //   })
     }
+    
+	// // 페이지 렌더링 후 가장 처음 호출되는 함수
+    // useEffect(() => {
+
+    //     axios.get('http://127.0.0.1:8000/login/')
+    //     .then(res => console.log(res))
+    //     .catch()
+
+    // },
+    // // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
+    // [])
+
     return(
                  <>
+
     <div id="loginwrap">
         <div id="right">
             <div className="right">
-                <h2>로그인하기</h2>
+                <h2>회원가입 - 테스트</h2>
 
                 <div action="">
                     <div className="inputBox">
@@ -110,12 +128,11 @@ function Login(props) {
                 </div>
 
                 <div>아직 계정이 없으신가요?<a href='/'>회원가입</a></div>
-
             </div>
         </div>
     </div>
-
     </>               
     )
 }
+ 
 export default Login;
